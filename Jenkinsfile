@@ -11,8 +11,7 @@ pipeline {
             }
 	}
 	stage('Build Docker Image') {
-	    agent any
-            steps { def golang-demoImage = docker.build("golang-demo") }
+            node { def golang-demoImage = docker.build("golang-demo") }
         }
     }
 }
