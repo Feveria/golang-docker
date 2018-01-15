@@ -6,6 +6,7 @@ node {
         }
     }
     stage('Build Docker Image') {
+	git 'https://github.com/Feveria/golang-docker.git'
         def golangdemoimage = docker.build("golang-demo")
     }
 }
