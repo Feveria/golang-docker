@@ -9,7 +9,7 @@ node {
 	git 'https://github.com/Feveria/golang-docker.git'
         def golangdemoimage = docker.build("golang-demo:${env.BUILD_ID}")
     }
-    stage('Run Docker image in Minikube') {
-	sh 'kubectl run golang-demo --image=golang-demo --port=8000'
+    stage('Run Docker image') {
+	sh 'docker run golang-demo -p 8000:8000 &'
 	}
 }
