@@ -9,4 +9,7 @@ node {
 	git 'https://github.com/Feveria/golang-docker.git'
         def golangdemoimage = docker.build("golang-demo:${env.BUILD_ID}")
     }
+    stage('Run Docker Image') {
+	docker.image('golang-demo:${env.BUILD_ID}').withRun('-p 8000:8000')
+	}
 }
